@@ -1,51 +1,86 @@
-<html>
 
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
+# LIBS‑SCReeN
+
+**Screening raw materials from exploration to (post-)beneficiation using LIBS techniques**  
+_BELSPO BRAIN-be 2.0 – B2/191/P1/LIBS‑SCReeN (2020–2024)_
+
+A collection of Python scripts, notebooks and tools developed to process LIBS spectra and hyperspectral imaging data, aimed at robust elemental screening across multiple scales.
+
+---
+
+## 📌 Consortium
+
+The LIBS‑SCReeN project is driven by a strong collaboration between Belgian universities and research institutes:
+
+| Institution | Role / Expertise | Key Contacts |
+|-------------|------------------|--------------|
+| **Royal Belgian Institute of Natural Sciences – Geological Survey of Belgium (RBINS‑GSB)** | Coordination and LIBS instrumentation |  Christian Burlet |
+| **Université de Mons (UMONS)** | Core LIBS instrumentation and mapping workflows | Jean‑Marc Baele |
+| **Katholieke Universiteit Leuven (KU Leuven)** | Machine learning & chemometrics | Anca Croitor Sava |
+| **Université de Liège (ULiège)** | Environmental engineering & core LIBS setup | Eric Pirard |
+
+- Project site: https://sites.google.com/view/libs-screen/ :contentReference[oaicite:6]{index=6}  
+
+---
+
+## 🛠 Repository Structure
+
+```
+
+/
+├── scripts/       # LIBS spectral processing and elemental mapping
+├── notebooks/     # Jupyter tutorials for data workflows
+├── data/          # Sample spectral or hyperspectral datasets
+└── README.md      # Documentation (this file)
+
+````
+
+---
+
+## ⚙️ Getting Started
+
+### Requirements
+
+- Python 3.8+  
+- Dependencies: `numpy`, `scipy`, `pandas`, `matplotlib`, `netCDF4`, `xarray`, etc.
+
+### Installation
+
+```bash
+git clone https://github.com/Niphargusproject/LIBS-SCReeN.git
+cd LIBS-SCReeN
+pip install -r requirements.txt
+````
+
+---
+
+## 🚀 Usage
+
+Use the scripts and notebooks to:
+
+* **Convert** raw LIBS files (CSV, netCDF, TIFF).
+* **Process** LIBS hyperspectral cubes interactively.
+* **Extract** elemental peaks and generate concentration maps.
+* **Visualize** results via notebooks and plotting modules.
+
+---
+
+## 📚 Examples & Tutorials
+
+See `notebooks/` for workflows covering raw data ingestion to final analysis.
+Scripts in `scripts/` can be used standalone or embedded into pipelines.
+
+---
+
+## 📖 References
+
+* Project summary & description on Belgium’s natural sciences institute site ([sites.google.com][4], [belspo.be][2], [naturalsciences.be][3])
+* Partner and context details from Belspo PDF documentation ([belspo.be][1])
 
 
-</head>
+[1]: https://www.belspo.be/belspo/brain2-be/projects/LIBS-SCReeN_E.pdf "[PDF] LIBS-SCReeN - Belspo"
+[2]: https://www.belspo.be/belspo/brain2-be/projects/FinalReports/LIBS-SCReeN_FinRep.pdf "[PDF] LIBS-SCReeN - Belspo"
+[3]: https://www.naturalsciences.be/en/science/research/geosciences-for-a-sustainable-society/projects/libs-screen "LIBS-SCReeN | Institute of Natural Sciences"
+[4]: https://sites.google.com/view/libs-screen/ "LIBS-SCReeN"
 
-<body lang=FR-BE style='word-wrap:break-word'>
 
-<div class=WordSection1>
-
-<p><b><span lang=EN-US>LIBS-SCReeN Screening raw materials from exploration to
-(post)beneficiation using LIBS techniques</span></b><span lang=EN-US> </span></p>
-
-<p><span lang=EN-US>BELSPO Brain Contract - B2/191/ P1/LIBS-SCReeN </span></p>
-
-<p><span lang=NL-BE>website : https://sites.google.com/view/libs-screen/ </span></p>
-
-</article>
-
-<p class=MsoNormal style='text-align:justify'><span lang=EN-US>The project LIBS-SCReeN
-aimed at improving already existing LIBS technology in Belgian laboratories and
-developing and implementing further LIBS analytical capacity to test the
-application of the technique to the whole life cycle of CRM, from exploration
-of resources to post-beneficiation scenarios of recycling and/or environmental
-issues. The specific objectives of the project were to :</span></p>
-
-<p class=MsoNormal style='text-align:justify'><span lang=EN-US>1) develop and
-implement scientifically sound workflows to exploit LIBS for elemental
-screening at multiple scales, </span></p>
-
-<p class=MsoNormal style='text-align:justify'><span lang=EN-US>2) to optimise element
-identification workflows from data acquisition to treatment to ensure the
-applicability of LIBS to different deposits and environmental needs, and </span></p>
-
-<p class=MsoNormal style='text-align:justify'><span lang=EN-US>3) to disseminate
-and cluster local activities with the global scientific LIBS community and EU
-projects to establish a Belgian LIBS expertise hub.</span></p>
-
-<p class=MsoNormal style='text-align:justify'><span lang=EN-US>This repository hosts
-the spectra treatment scripts and applications developed during the project.</span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-</div>
-
-</body>
-
-</html>
