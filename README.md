@@ -19,7 +19,7 @@ The LIBS‑SCReeN project is driven by a strong collaboration between Belgian un
 | **Katholieke Universiteit Leuven (KU Leuven)** | Machine learning & chemometrics | Anca Croitor Sava |
 | **Université de Liège (ULiège)** | Environmental engineering & core LIBS setup | Eric Pirard |
 
-- Project site: https://sites.google.com/view/libs-screen/ :contentReference[oaicite:6]{index=6}  
+- Project site: https://sites.google.com/view/libs-screen/
 
 ---
 
