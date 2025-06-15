@@ -95,13 +95,6 @@ python "LIBS Format conversion scripts (beta)/TIF_to_mat.py"
 
 ---
 
-## 📝 Licence
-
-Unless stated otherwise in individual files, the code is released under the **MIT Licence**.  
-Please cite the original LIBS‑SCReeN project when using it in academic work.
-
----
-
 ## 🌐 Further information
 
 * Project website – <https://sites.google.com/view/libs-screen/>  
