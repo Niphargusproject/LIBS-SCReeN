@@ -1,81 +1,110 @@
-
 # LIBS‑SCReeN
 
-**Screening raw materials from exploration to (post-)beneficiation using LIBS techniques**  
-_BELSPO BRAIN-be 2.0 – B2/191/P1/LIBS‑SCReeN (2020–2024)_
+**Screening raw materials from exploration to (post‑)beneficiation using Laser‑Induced Breakdown Spectroscopy (LIBS)**  
+_BELSPO BRAIN‑be 2.0 project B2/191/P1 (2020 – 2024)_
 
-A collection of Python scripts, notebooks and tools developed to process LIBS spectra and hyperspectral imaging data, aimed at robust elemental screening across multiple scales.
-
----
-
-## 📌 Consortium
-
-The LIBS‑SCReeN project is driven by a strong collaboration between Belgian universities and research institutes:
-
-| Institution | Role / Expertise | Key Contacts |
-|-------------|------------------|--------------|
-| **Royal Belgian Institute of Natural Sciences – Geological Survey of Belgium (RBINS‑GSB)** | Coordination and LIBS instrumentation |  Christian Burlet |
-| **Université de Mons (UMONS)** | Core LIBS instrumentation and mapping workflows | Jean‑Marc Baele |
-| **Katholieke Universiteit Leuven (KU Leuven)** | Machine learning & chemometrics | Anca Croitor Sava |
-| **Université de Liège (ULiège)** | Environmental engineering & core LIBS setup | Eric Pirard |
-
-- Project site: https://sites.google.com/view/libs-screen/
+This repository contains **proof‑of‑concept Python tools** developed in the framework of the **LIBS‑SCReeN** consortium to visualise and convert LIBS hyperspectral data cubes.  
+The code is intended as an *illustrative starting‑point* rather than a production‑ready package.
 
 ---
 
-## 🛠 Repository Structure
+## 📂 Repository layout
 
+```text
+LIBS-SCReeN/
+├── LIBS Format conversion scripts (beta)/
+│   ├── TIF_to_mat.py
+│   ├── TIF_to_mat_and_netCDF.py
+│   ├── mat_to_tif_hypercubes.py
+│   └── netcdf_to_tif_test.py
+├── LIBS hypercube explorer (netcdf)/
+│   ├── LIBS_hypercube_explorer.pyw
+│   └── Slider_hypercube.ui
+└── README.md   ← you are here
 ```
 
+* **LIBS Format conversion scripts (beta)** – stand‑alone scripts that convert hyperspectral image stacks between **TIFF ↔ MATLAB `.mat` ↔ NetCDF** formats.  
+  > *Tip :* each script defines the *input file name* at the top – simply edit that variable or wrap the logic in your own CLI if you need batch processing.
 
-````
+* **LIBS hypercube explorer (netcdf)** – a small **PyQt5 + Matplotlib GUI** that lets you open a NetCDF hypercube, scroll through wavelength layers with a slider and inspect pixel spectra.
 
 ---
 
-## ⚙️ Getting Started
+## ⚙️ Quick start
 
-### Requirements
-
-- Python 3.8+  
-- Dependencies: `numpy`, `scipy`, `pandas`, `matplotlib`, `netCDF4`, `xarray`, etc.
-
-### Installation
+### 1. Create a Python environment
 
 ```bash
-git clone https://github.com/Niphargusproject/LIBS-SCReeN.git
-cd LIBS-SCReeN
-pip install -r requirements.txt
-````
+python -m venv venv          # or conda create -n libs-screen python=3.10
+source venv/bin/activate     # Windows: venv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install numpy scipy xarray h5py tifffile scikit-image                        matplotlib seaborn pandas PyQt5
+```
+
+### 2. Run the hypercube explorer
+
+```bash
+python "LIBS hypercube explorer (netcdf)/LIBS_hypercube_explorer.pyw"
+```
+
+A window will open – use **File → Open** to load your `.nc` hypercube and explore individual wavelength slices.
+
+### 3. Convert data
+
+```bash
+# Example: convert a 3‑D TIFF stack called sample.tif to MATLAB .mat
+python "LIBS Format conversion scripts (beta)/TIF_to_mat.py"
+```
+
+> The conversion scripts are minimal prototypes – open them in a text editor and
+> adapt the hard‑coded `filename` / `imstack` variables to your dataset.
 
 ---
 
-## 🚀 Usage
+## 🧰 Dependencies summary
 
-Use the scripts and notebooks to:
-
-* **Convert** raw LIBS files (CSV, netCDF, TIFF).
-* **Process** LIBS hyperspectral cubes interactively.
-* **Extract** elemental peaks and generate concentration maps.
-* **Visualize** results via notebooks and plotting modules.
-
----
-
-## 📚 Examples & Tutorials
-
-See `notebooks/` for workflows covering raw data ingestion to final analysis.
-Scripts in `scripts/` can be used standalone or embedded into pipelines.
+| Package | Why it’s needed |
+|---------|-----------------|
+| **numpy**, **scipy**, **pandas** | numerical & metadata handling |
+| **xarray**, **h5py** | NetCDF / HDF5 hypercube I/O |
+| **tifffile**, **scikit‑image** | reading & writing multi‑page TIFF |
+| **matplotlib**, **seaborn** | plotting (GUI + notebooks) |
+| **PyQt5** | cross‑platform GUI for the explorer |
 
 ---
 
-## 📖 References
+## 🎯 Project scope & future work
 
-* Project summary & description on Belgium’s natural sciences institute site ([sites.google.com][4], [belspo.be][2], [naturalsciences.be][3])
-* Partner and context details from Belspo PDF documentation ([belspo.be][1])
+* Provide open examples of **format conversion** between the most common LIBS hyperspectral container formats.  
+* Offer a **lightweight viewer** for quick QC of NetCDF cubes.  
+* ➡ Planned (community help welcome!):
+  * add CLI arguments to the conversion scripts  
+  * support large cubes with lazy‑loading / dask  
+  * export false‑colour RGB composites from the GUI  
 
+---
 
-[1]: https://www.belspo.be/belspo/brain2-be/projects/LIBS-SCReeN_E.pdf "[PDF] LIBS-SCReeN - Belspo"
-[2]: https://www.belspo.be/belspo/brain2-be/projects/FinalReports/LIBS-SCReeN_FinRep.pdf "[PDF] LIBS-SCReeN - Belspo"
-[3]: https://www.naturalsciences.be/en/science/research/geosciences-for-a-sustainable-society/projects/libs-screen "LIBS-SCReeN | Institute of Natural Sciences"
-[4]: https://sites.google.com/view/libs-screen/ "LIBS-SCReeN"
+## 🤝 Consortium
 
+| Institution | Expertise | Main contact |
+|-------------|-----------|--------------|
+| **Royal Belgian Institute of Natural Sciences – Geological Survey of Belgium (RBINS‑GSB)** | Coordination, field LIBS deployment | Christian Burlet |
+| **Université de Mons (UMONS)** | Core LIBS instrumentation & mapping | Jean‑Marc Baele |
+| **KU Leuven** | Machine learning & chemometrics | Anca Croitor Sava |
+| **Université de Liège (ULiège)** | Engineering & process applications | Eric Pirard |
 
+---
+
+## 📝 Licence
+
+Unless stated otherwise in individual files, the code is released under the **MIT Licence**.  
+Please cite the original LIBS‑SCReeN project when using it in academic work.
+
+---
+
+## 🌐 Further information
+
+* Project website – <https://sites.google.com/view/libs-screen/>  
+* Final BELSPO report – <https://www.belspo.be/belspo/brain2-be/projects/FinalReports/LIBS-SCReeN_FinRep.pdf>
+
+---
