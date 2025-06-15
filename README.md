@@ -27,11 +27,6 @@ The LIBS‑SCReeN project is driven by a strong collaboration between Belgian un
 
 ```
 
-/
-├── scripts/       # LIBS spectral processing and elemental mapping
-├── notebooks/     # Jupyter tutorials for data workflows
-├── data/          # Sample spectral or hyperspectral datasets
-└── README.md      # Documentation (this file)
 
 ````
 
